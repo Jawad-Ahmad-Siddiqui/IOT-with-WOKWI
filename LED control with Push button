@@ -1,0 +1,24 @@
+from machine import Pin
+from time import sleep
+
+led = Pin(23, Pin.OUT)
+
+
+but = Pin(22, Pin.IN)
+buzz = Pin(16, Pin.OUT)
+
+
+
+def result():
+    butt = but.value()
+    print(f"yes{butt}")
+
+    if but.value() == 1:
+        led.on()
+        buzz.on()
+        sleep(2)
+    elif but.value() == 0:
+        led.off()
+        sleep(2)
+while True:
+    result()
